@@ -9,10 +9,38 @@ module.exports = {
     },
     module: {
         rules: [
+            ...base.module.rules,
+            {
+                test: /\.styl$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'stylus-loader',
+                ],
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader',
+                ],
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
             {
                 test: /\.css$/i,
                 //JS生成style方式
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
             },
         ],
     },

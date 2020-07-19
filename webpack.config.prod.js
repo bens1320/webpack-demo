@@ -15,6 +15,46 @@ module.exports = {
     ],
     module: {
         rules: [
+            ...base.module.rules,
+            {
+                test: /\.styl$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../',
+                        },
+                    },
+                    'css-loader',
+                    'stylus-loader',
+                ],
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../',
+                        },
+                    },
+                    'css-loader',
+                    'less-loader',
+                ],
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../',
+                        },
+                    },
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
             {
                 test: /\.css$/i,
                 //提取出CSS方式
